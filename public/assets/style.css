@@ -1,0 +1,27 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+.z-content.label{
+      border-radius: 0%
+      font-size: calc(7px + 1vmax);
+      margin-top: calc(2vmax);
+      pointer-events: none;
+    }
+.main {
+      background-color: #fff!important;color: #8b8c8d!important;
+
+    }
+    .active {
+      background-color: #fff!important; color: #982934!important;
+
+    }
+    .inactive {
+      background-color: #982934!important; color: #fff!important;
+    }
+    .back{
+      height: 50px;
+      width: 50px;
+      background: url("340.png");
+    }
+    .back:hover{
+      background: url("");
+    }

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MIT Courses</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/assets/test.css">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <script type="text/javascript" src="/assets/script.js"></script>
+
+</head>
+<body>
+ <div id="app">
+   <v-app light>
+    <template>
+
+    	<!---header-->
+      <v-toolbar color="blue-grey darken-4">
+
+        <a href="/" style="text-decoration:none"><h1 class="text-md-left" style="font-size: 30px;cursor:pointer; font-weight: 300; color: #fff">MIT Courses</h1></a>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn href="/" flat style="color: #fff;" id="test" >MAIN</v-btn>
+          <v-btn flat style="color: #fff;" >COURSES</v-btn>
+          <v-btn href="/teachers" style="color: #fff;" flat >TEACHERS</v-btn>
+
+
+
+
+
+          <v-layout row justify-center>
+            <v-dialog v-model="dialog2" persistent max-width="600px">
+              <v-btn depressed small color="primary" style="height: 40px; margin-left: 10px; margin-top: 12px;" slot="activator">REGISTER</v-btn>
+              <v-card>
+                <v-card-title>
+                  <span class="headline">User Profile</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container grid-list-md>
+                    <v-layout wrap>
+                      <v-flex xs12 sm6 md4>
+                        <v-text-field label="First name*" required id="user_name"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12 sm6 md4>
+                        <v-text-field label="Last name" ></v-text-field>
+                      </v-flex>
+
+                      <v-flex xs12>
+                        <v-text-field label="Email*" required id="user_email"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-text-field label="Password*" type="password" required id="user_pass"></v-text-field>
+                      </v-flex>
+
+                    </v-layout>
+                  </v-container>
+                  <small>*indicates required field</small>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" flat @click.native="dialog2 = false">Close</v-btn>
+                  <v-btn color="blue darken-1" flat @click.native="dialog2 = false" onclick="login()">Save</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+
+
+
+        </v-toolbar-items>
+      </v-toolbar>
+
+      <!--konec headera-->
+
+
+      <!--parallax-->
+    </template>
+    <v-content>
+      <section>
+        <v-parallax src="https://superromantica.com/wp-content/uploads/2018/01/material_design_wallpaper_red_034_by_charlie_henson-daa22ts.png" height="600">
+          <v-layout
+          column
+          align-center
+          justify-center
+          class="white--text"
+          >
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/1280px-MIT_logo.svg.png" alt="Vuetify.js" height="100">
+
+          <p style="font-weight: 900; font-size: 100px;" class="text-xs-center">MIT Courses</p>
+
+
+          <p style="font-weight: 100; font-size: 30px;">Presented by SDU</p>
+          <v-btn href="#get"
+          class="blue lighten-2 mt-5"
+          dark
+          large
+
+          >
+          Get Started
+        </v-btn>
+      </v-layout>
+    </v-parallax>
+  </section>
+
+
+  <v-content>
+   <v-flex xs12 md12>
+     <v-container fluid style="background: linear-gradient(to right, #E85052,#731C52);">
+      <v-layout
+      align-center
+      justify-space-around
+      wrap
+      >
+      <v-avatar>
+        <i class="fas fa-book-open" style="font-size: 50px; color: white;"></i>
+        <h5 class="text-sm-center" style="font-weight: 600; font-size: 15px; margin-left: 10px; color: #fff" >Interesting courses</h5>
+      </v-avatar>
+
+
+      <v-avatar>
+        <i class="fas fa-chalkboard-teacher" style="font-size: 50px; color: white;"></i>
+        <h5 class="text-sm-center" style="font-weight: 600; font-size: 15px; margin-left: 10px; color: #fff" >Professional teachers</h5>
+      </v-avatar>
+
+      <v-avatar>
+        <i class="fas fa-shield-alt" style="font-size: 50px; color: white"></i>
+        <h5 class="text-sm-center" style="font-weight: 600; font-size: 15px; margin-left: 10px; color: #fff" >Lifespan access</h5>
+      </v-avatar>
+
+
+    </v-layout>
+  </v-container>
+</v-flex>
+</v-content>
+
+<!--konec parallaxa-->
+
+<!--courses-->
+
+
+<section>
+  <v-layout
+  column
+  wrap
+  class="my-5"
+  align-center
+  >
+  <v-flex xs12 sm4 class="my-3">
+    <div class="text-xs-center">
+      <h1 class="headline" id="get">The best way to learn something new</h1>
+      <span class="subheading">
+        Here the list of courses which you can pass
+      </span>
+    </div>
+  </v-flex>
+
+  <!--courses list-->
+
+  <v-flex xs12>
+    <v-container grid-list-xl>
+      <v-layout row wrap align-center>
+        <v-flex xs12 md4>
+          <!--course1-->
+          <v-card>
+            <v-img
+            src="https://st2.depositphotos.com/6485672/10912/i/950/depositphotos_109128412-stock-photo-code-html-web-programming-background.jpg"
+            height="200px"
+            >
+          </v-img>
+
+          <v-card-title primary-title>
+            <div>
+              <div class="headline">WEB-programming</div>
+              <span class="grey--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </div>
+          </v-card-title>
+
+          <v-card-actions>
+            <v-btn href="/reg/WEB-programming" color="info">Buy</v-btn>
+
+
+
+
+
+            <v-dialog
+            v-model="dialog"
+            width="500"
+            >
+            <v-btn
+            slot="activator"
+            color="teal lighten-2"
+            outline
+            style="margin-left: 10px;"
+            >
+            Info
+          </v-btn>
+
+          <v-card>
+            <v-card-title
+            class="headline grey lighten-2"
+            primary-title
+            >
+            About Course
+          </v-card-title>
+
+          <v-card-text>
+            Web programming refers to the writing, markup and coding involved in Web development, which includes Web content, Web client and server scripting and network security. The most common languages used for Web programming are XML, HTML, JavaScript, Perl 5 and PHP. Web programming is different from just programming, which requires interdisciplinary knowledge on the application area, client and server scripting, and database technology.
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+            color="primary"
+            flat
+            @click="dialog = false"
+            >
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <h2 style="margin-left: 10px;">900$</h2>
+
+
+  </v-card-actions>
+
+
+</v-card>
+</v-flex>
+<v-flex xs12 md4>
+
+ <v-card>
+  <v-img
+  src="https://miro.medium.com/max/854/1*60gs-SFYyooZZBxatuoNJw.jpeg"
+  height="200px"
+  >
+</v-img>
+
+<v-card-title primary-title>
+  <div>
+    <div class="headline">Machine Learning</div>
+    <span class="grey--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+  </div>
+</v-card-title>
+
+<v-card-actions>
+  <v-btn href="/reg/Machine Learning" color="info">Buy</v-btn>
+
+
+  <v-dialog
+  v-model="dialog4"
+  width="500"
+  >
+  <v-btn
+  slot="activator"
+  color="teal lighten-2"
+  outline
+  style="margin-left: 10px;"
+  >
+  Info
+</v-btn>
+
+<v-card>
+  <v-card-title
+  class="headline grey lighten-2"
+  primary-title
+  >
+  About Course
+</v-card-title>
+
+<v-card-text>
+  Machine learning (ML) is a field of artificial intelligence that uses statistical techniques to give computer systems the ability to "learn" (e.g., progressively improve performance on a specific task) from data, without being explicitly programmed. The name machine learning was coined in 1959 by Arthur Samuel.
+</v-card-text>
+
+<v-divider></v-divider>
+
+<v-card-actions>
+  <v-spacer></v-spacer>
+  <v-btn
+  color="primary"
+  flat
+  @click="dialog4 = false"
+  >
+  Close
+</v-btn>
+</v-card-actions>
+</v-card>
+</v-dialog>
+<h2 style="margin-left: 10px;">2900$</h2>
+
+
+</v-card-actions>
+
+
+</v-card>
+</v-flex>
+<v-flex xs12 md4>
+  <v-card>
+
+   <v-card>
+    <v-img
+    src="https://cdn.techopedia.com/images/uploads/brochure-flyer-paper-poster-star-symbol-emblem-label-text.jpg?width=370&height=250&mode=crop"
+    height="200px"
+    >
+  </v-img>
+
+  <v-card-title primary-title>
+    <div>
+      <div class="headline">IT-marketing</div>
+      <span class="grey--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+    </div>
+  </v-card-title>
+
+  <v-card-actions>
+    <v-btn href="/reg/IT-Marketing" color="info">Buy</v-btn>
+
+    <v-dialog
+    v-model="dialog5"
+    width="500"
+    >
+    <v-btn
+    slot="activator"
+    color="teal lighten-2"
+    outline
+    style="margin-left: 10px;"
+    >
+    Info
+  </v-btn>
+
+  <v-card>
+    <v-card-title
+    class="headline grey lighten-2"
+    primary-title
+    >
+    About Course
+  </v-card-title>
+
+  <v-card-text>
+    iR Marketing is a full service consulting and marketing agency that specializes in brand marketing and sales campaigns for small and medium size businesses.
+  </v-card-text>
+
+  <v-divider></v-divider>
+
+  <v-card-actions>
+    <v-spacer></v-spacer>
+    <v-btn
+    color="primary"
+    flat
+    @click="dialog5 = false"
+    >
+    Close
+  </v-btn>
+</v-card-actions>
+</v-card>
+</v-dialog>
+
+<h2 style="margin-left: 10px;">1900$</h2>
+
+</v-card>
+</v-flex>
+
+</v-layout>
+</v-container>
+</v-flex>
+</v-layout>
+</section>
+
+
+
+<section>
+  <v-parallax src="https://undesigns.net/wp-content/uploads/2018/02/Material-Design-Background-Undesigns-00.jpg" height="380">
+    <v-layout column align-center justify-center>
+      <div class="outer">
+        <div class="bg">
+          <div class="inner">
+
+            <h1 style="cursor:pointer">Be part of us</h1>
+
+          </div>
+        </div>
+      </div>
+      <h2 class="text-md-center" style="color: #fff; font-weight: 100">Register to participate in new courses</h2>
+      <v-btn
+      class="blue lighten-2 mt-5"
+      dark
+      large
+      >
+      Get Started
+    </v-btn>
+  </v-layout>
+</v-parallax>
+</section>
+
+
+
+<v-content>
+  <v-flex xs12 md12>
+    <v-container fluid style="background: linear-gradient(to right, #130543,#35236C);">
+      <h3 class="text-md-center" style="color: #fff"> 2018 - MIT Courses </h3>
+    </v-container>
+  </v-flex>
+</v-content>
+
+
+
+</v-content>
+</v-app>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+<script>
+ new Vue({
+  el: '#app',
+  data () {
+    return {
+      title: 'Your Logo',
+      dialog : false,
+      dialog1: false,
+      dialog2: false,
+      dialog3: false,
+      dialog4: false,
+      dialog5: false
+
+
+
+    }
+  }
+})
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
