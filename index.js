@@ -112,5 +112,5 @@ app.get('/admin',function (req,res) {
   });
 })
 
-app.listen(3000);
+app.listen(process.env.PORT || 5000);
 console.log("Created server");
