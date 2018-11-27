@@ -33,6 +33,9 @@ app.use(express.static('./public'));
 app.get('/',function (req,res) {
   res.sendFile(__dirname+'/index.html')
 });
+app.get('*',function (req,res) {
+  res.sendFile(__dirname+'/index.html')
+});
 app.get('/reg/:courseName',function (req,res) {
   res.render('register',{courseName:req.params.courseName});
 })
