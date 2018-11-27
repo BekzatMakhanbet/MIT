@@ -114,4 +114,5 @@ app.get('/admin',function (req,res) {
 })
 
 app.listen(PORT, ()=> console.log('Listeni ${PORT}'));
+log.Fatal(http.ListenAndServe(":" + os.Getenv("PORT"),router))
 console.log("Created server");
